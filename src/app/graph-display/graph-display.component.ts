@@ -114,6 +114,9 @@ export class GraphDisplayComponent implements OnInit {
   ngOnInit(): void {
     this.ctx = this.canvas.nativeElement.getContext('2d');
     this.ctxCopy = this.canvasCopy.nativeElement.getContext('2d');
+
+    this.ctx.canvas.width = window.innerWidth * 0.3;
+    this.ctxCopy.canvas.width = window.innerWidth * 0.3;
   }
 
   stopProcess(): void {

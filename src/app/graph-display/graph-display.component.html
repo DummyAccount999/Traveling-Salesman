@@ -1,88 +1,81 @@
-<h1>Traveling salesman!</h1>
-<p>Solved by using simulated annealing</p>
+<div class="row">
+    <div class="col">
+        <h2>
+            Ideal Path
+        </h2>
+    </div>
+    <div class="col">
+        <h2>
+            Newly generated path
+        </h2>
+    </div>
+</div>
 
-<div class="page-wrapper">
-    <div class="row">
-        <div class="column">
-            <p>
-                Ideal path
-            </p>
-        </div>
-        <div class="column">
-            <p>
-                Newly generated path
-            </p>
+<div class="row">
+    <div class="col">
+        <canvas #canvas (click)="addPoint($event)" height="250"></canvas>
+    </div>
+    <div class="col">
+        <canvas #canvasCopy height="250"></canvas>
+    </div>
+</div>
+
+<div class="row"></div>
+
+<div class="row">
+    <div class="col">
+        <div class="input-form">
+            <div class="inputs">
+                <input [(ngModel)]="temprature" class="textinput" min="10" max="5000" value={{temprature}} />
+                <input [(ngModel)]="temprature" class="rangeinput" type="range" min="10" max="5000" step="1"
+                    value={{temprature}} />
+            </div>
+            <label class="label-text">
+                <span class="span-text">Temprature:</span>
+            </label>
         </div>
     </div>
+</div>
 
-    <div class="canvasDivide">
-        <canvas #canvas (click)="addPoint($event)"></canvas>
-        <canvas #canvasCopy></canvas>
-    </div>
+<div class="row"></div>
 
-    <div class="row">
-        <div class="column">
-            <input [(ngModel)]="alpha" type="range" min="0.1" max="0.99" value={{alpha}} step="0.01" class="slider" />
-        </div>
-        <div class="column">
-            <p>
-                Alpha value:
-            </p>
-        </div>
-        <div class="column">
-            <input [(ngModel)]="alpha" max="0.99" min="0.1" value={{alpha}} class="textbox">
+<div class="row">
+    <div class="col">
+        <div class="input-form">
+            <div class="inputs">
+                <input [(ngModel)]="alpha" class="textinput" min="0.1" max="0.999" value={{alpha}} />
+                <input [(ngModel)]="alpha" class="rangeinput" type="range" min="0.1" max="0.999" step="0.01"
+                    value={{alpha}} />
+            </div>
+            <label class="label-text">
+                <span class="span-text">Alpha:</span>
+            </label>
         </div>
     </div>
+</div>
 
-    <div class="row">
-        <div class="column">
-            <input [(ngModel)]="temprature" type="range" min="10" max="5000" value={{temprature}} step="1"
-                class="slider" />
-        </div>
-        <div class="column">
-            <p>
-                Temprature:
-            </p>
-        </div>
-        <div class="column">
-            <input [(ngModel)]="temprature" max="5000" min="0" value={{temprature}} class="textbox">
+<div class="row"></div>
+
+<div class="row">
+    <div class="col">
+        <div class="input-form">
+            <div class="inputs">
+                <input [(ngModel)]="iterations" class="textinput" min="10" max="5000" value={{iterations}} />
+                <input [(ngModel)]="iterations" class="rangeinput" type="range" min="10" max="5000" step="1"
+                    value={{iterations}} />
+            </div>
+            <label class="label-text">
+                <span class="span-text">Iterations:</span>
+            </label>
         </div>
     </div>
+</div>
 
-    <div class="row">
-        <div class="column">
-            <input [(ngModel)]="speed" type="range" min="10" max="5000" value={{speed}} step="1" class="slider" />
-        </div>
-        <div class="column">
-            <p>
-                Speed (ms):
-            </p>
-        </div>
-        <div class="column">
-            <input [(ngModel)]="speed" max="5000" min="0" value={{speed}} class="textbox">
-        </div>
-    </div>
+<div class="row"></div>
 
-    <div class="row">
-        <div class="column">
-            <input [(ngModel)]="iterations" type="range" min="10" max="5000" value={{iterations}} step="1" class="slider" />
-        </div>
-        <div class="column">
-            <p>
-                Iterations:
-            </p>
-        </div>
-        <div class="column">
-            <input [(ngModel)]="iterations" max="5000" min="0" value={{iterations}} class="textbox">
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="column">
-            <button (click)="resetAll()">Reset!</button>
-        </div>
-        <div class="column">
-            <button (click)="runButtonFunction()">{{buttonText}}</button>
-        </div>
+<div class="row">
+    <div class="col">
+        <button (click)="resetAll()">Reset!</button>
+        <button (click)="runButtonFunction()">{{buttonText}}</button>
     </div>
 </div>

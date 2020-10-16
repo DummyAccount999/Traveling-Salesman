@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CanvasTestComponent } from './canvas-test/canvas-test.component';
 import { GraphDisplayComponent } from './graph-display/graph-display.component';
 import { FormsModule } from '@angular/forms';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CanvasTestComponent,
-    GraphDisplayComponent
+    GraphDisplayComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,

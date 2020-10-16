@@ -115,8 +115,8 @@ export class GraphDisplayComponent implements OnInit {
     this.ctx = this.canvas.nativeElement.getContext('2d');
     this.ctxCopy = this.canvasCopy.nativeElement.getContext('2d');
 
-    this.ctx.canvas.width = (window.innerWidth - (window.innerWidth * 0.7));
-    this.ctxCopy.canvas.width = (window.innerWidth  - (window.innerWidth * 0.7));
+    this.ctx.canvas.width = (window.innerWidth - (window.innerWidth * 0.6));
+    this.ctxCopy.canvas.width = (window.innerWidth  - (window.innerWidth * 0.6));
   }
 
   stopProcess(): void {

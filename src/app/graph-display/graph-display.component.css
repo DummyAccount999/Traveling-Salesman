@@ -1,51 +1,94 @@
-h1 {
-    text-align: center;
-    display: block;
-}
-
-p {
-    text-align: center;
-}
-
 canvas {
-    border-style: solid;
-    border-radius: 5px;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
-button {
-    width: 25%;
-    margin-left: 35%;
-}
-
-.textbox {
-    margin-top: 7%;
-    text-align: center;
-    border-radius: 5px;
-}
-
-.slider {
-    margin-top: 8%;
-}
-
-.page-wrapper {
-    margin: 15px;
+h2 {
+    text-transform: uppercase;
+    letter-spacing: 5px;
 }
 
 .row {
-    margin-left: 12.5%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 75%;
+    justify-content: center;
+    width: 100%;
+    min-height: 20px;
 }
 
-.column {
+.col {
     display: flex;
-    flex-direction: column;
-    flex-basis: 100%;
-    flex: 1;
+    justify-content: center;
+    width: 100%;
+    /* background-color: grey; */
+    height: 100%;
 }
 
-.canvasDivide {
-    margin-left: 19%;
+
+
+
+/* For inputs only */
+.input-form {
+    position: relative;
+    border-radius: 5px;
+    /* background-color: #EBF2FA; */
+    /* border: 1px solid #B47978; */
+    width: 500px;
+    height: 50px;
+    padding: 10px;
+}
+
+.inputs {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-top: 35px;
+    position: absolute;
+    width: 100%;
+}
+
+.rangeinput {
+    position: absolute;
+    margin-left: 25%;
+    width: 70%;
+    -webkit-appearance: none;
+    background: #e6e6e6;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    border-radius: 10px;
+}
+
+.rangeinput:hover {
+    opacity: 1;
+}
+
+.rangeinput::-webkit-slider-thumb {
+    background: #415A77;
+    border-radius: 10px;
+}
+
+.rangeinput::-moz-range-thumb {
+    background: #415A77;
+    width: 10px;
+    height: 10px;
+}
+
+.textinput {
+    position: absolute;
+    border-style: none;
+    border-bottom: 1px solid #B47978;
+    text-align: center;
+    width: 20%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    background-color: #F1F5F2;
+    border-radius: 2px;
+}
+
+.label-text {
+    position: absolute;
+    margin: auto;
+    letter-spacing: 0.25vh;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

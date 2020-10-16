@@ -24,6 +24,35 @@
 
 <div class="row">
     <div class="col">
+        <div class="tag">Random Point</div>
+        <input [(ngModel)]="rndPointsCheck" type="checkbox" id="random-check" class="random-checkbox" />
+        <label for="random-check" class="check-label" (click)="resetAll()"></label>
+    </div>
+</div>
+
+<div *ngIf="rndPointsCheck">
+    <div class="row"></div>
+
+    <div class="row">
+        <div class="col">
+            <div class="input-form">
+                <div class="inputs">
+                    <input [(ngModel)]="rndPoints" class="textinput" min="3" max="30" value={{rndPoints}} />
+                    <input [(ngModel)]="rndPoints" class="rangeinput" type="range" min="3" max="30" step="1"
+                        value={{rndPoints}} />
+                </div>
+                <label class="label-text">
+                    <span class="span-text">Number of points:</span>
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row"></div>
+
+<div class="row">
+    <div class="col">
         <div class="input-form">
             <div class="inputs">
                 <input [(ngModel)]="temprature" class="textinput" min="10" max="5000" value={{temprature}} />
@@ -43,8 +72,8 @@
     <div class="col">
         <div class="input-form">
             <div class="inputs">
-                <input [(ngModel)]="alpha" class="textinput" min="0.1" max="0.999" value={{alpha}} />
-                <input [(ngModel)]="alpha" class="rangeinput" type="range" min="0.1" max="0.999" step="0.01"
+                <input [(ngModel)]="alpha" class="textinput" min="0.9000" max="0.9999" value={{alpha}} />
+                <input [(ngModel)]="alpha" class="rangeinput" type="range" min="0.9000" max="0.9999" step="0.0001"
                     value={{alpha}} />
             </div>
             <label class="label-text">
@@ -60,8 +89,8 @@
     <div class="col">
         <div class="input-form">
             <div class="inputs">
-                <input [(ngModel)]="iterations" class="textinput" min="10" max="5000" value={{iterations}} />
-                <input [(ngModel)]="iterations" class="rangeinput" type="range" min="10" max="5000" step="1"
+                <input [(ngModel)]="iterations" class="textinput" min="10" max="50000" value={{iterations}} />
+                <input [(ngModel)]="iterations" class="rangeinput" type="range" min="10" max="50000" step="1"
                     value={{iterations}} />
             </div>
             <label class="label-text">
@@ -76,6 +105,8 @@
 <div class="row">
     <div class="col">
         <button (click)="resetAll()">Reset!</button>
+    </div>
+    <div class="col">
         <button (click)="runButtonFunction()">{{buttonText}}</button>
     </div>
 </div>

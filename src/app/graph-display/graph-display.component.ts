@@ -25,25 +25,30 @@ export class GraphDisplayComponent implements OnInit {
   WIDTH = 5;
   HEIGHT = 5;
 
-  alpha: number = 0.95;
+  alpha: number = 0.999;
   iterations: number = 1000;
   temprature: number = 500;
   tempratureCopy: number = 0;
-  speed: number = 50;
+  speed: number = 5;
+  rndPointsCheck: boolean = false;
+  rndPoints: number = 10;
+
 
   timer: number;
 
   constructor() { }
 
   addPoint(e): void {
-    const x = e.clientX - this.ctx.canvas.getBoundingClientRect().left;
-    const y = e.clientY - this.ctx.canvas.getBoundingClientRect().top;
+    if (!this.rndPointsCheck) {
+      const x = e.clientX - this.ctx.canvas.getBoundingClientRect().left;
+      const y = e.clientY - this.ctx.canvas.getBoundingClientRect().top;
 
-    this.points.push({ x: x, y: y });
+      this.points.push({ x: x, y: y });
 
-    this.bestGraph = undefined;
-    this.draw();
-    this.drawCopy(undefined);
+      this.bestGraph = undefined;
+      this.draw();
+      this.drawCopy(undefined);
+    }
   }
 
   erase(ctx): void {
@@ -109,6 +114,8 @@ export class GraphDisplayComponent implements OnInit {
     this.timer = undefined;
     this.points = [];
     this.bestGraph = undefined;
+    this.buttonText = "Start!";
+    this.buttonFunction = this.generateArcs;
   }
 
   ngOnInit(): void {
@@ -116,7 +123,7 @@ export class GraphDisplayComponent implements OnInit {
     this.ctxCopy = this.canvasCopy.nativeElement.getContext('2d');
 
     this.ctx.canvas.width = (window.innerWidth - (window.innerWidth * 0.6));
-    this.ctxCopy.canvas.width = (window.innerWidth  - (window.innerWidth * 0.6));
+    this.ctxCopy.canvas.width = (window.innerWidth - (window.innerWidth * 0.6));
   }
 
   stopProcess(): void {
@@ -130,6 +137,20 @@ export class GraphDisplayComponent implements OnInit {
   }
 
   generateArcs(): void {
+    if (this.rndPointsCheck) {
+      if (this.points.length <= 0) {
+        for (let i = 0; i < this.rndPoints; i++) {
+          let xVal = Math.floor(Math.random() * this.ctx.canvas.width);
+          let yVal = Math.floor(Math.random() * this.ctx.canvas.height);
+
+          this.points.push({ x: xVal, y: yVal });
+          this.bestGraph = undefined;
+          this.draw();
+          this.drawCopy(undefined);
+        }
+      }
+    }
+
     if (this.points.length < 2)
       return;
 

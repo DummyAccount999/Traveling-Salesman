@@ -2,7 +2,7 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 10vh;
+    height: 80px;
     background-color: #415A77;
 }
 
@@ -30,7 +30,7 @@ nav {
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    height: 10vh;
+    height: 80px;
 }
 
 .nav-links a {

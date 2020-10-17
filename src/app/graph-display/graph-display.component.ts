@@ -2,10 +2,33 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Point } from '../Classes/Point';
 import { Graph } from '../Classes/Graph';
 
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
+
 @Component({
   selector: 'app-graph-display',
   templateUrl: './graph-display.component.html',
-  styleUrls: ['./graph-display.component.css']
+  styleUrls: ['./graph-display.component.css'],
+  animations: [
+    trigger('showRandomPoints', [
+      state('show', style({
+        opacity: 1,
+        overflow: 'hidden',
+        height: '*',
+      })),
+      state('hide', style({
+        opacity: 0,
+        overflow: 'hidden',
+        height: '0px',
+      })),
+      transition('* => *', animate('300ms ease')),
+    ]),
+  ],
 })
 export class GraphDisplayComponent implements OnInit {
   @ViewChild('canvas', { static: true })

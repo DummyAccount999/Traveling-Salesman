@@ -30,7 +30,7 @@
     </div>
 </div>
 
-<div *ngIf="rndPointsCheck">
+<div [@showRandomPoints]="rndPointsCheck ? 'show' : 'hide'">
     <div class="row"></div>
 
     <div class="row">

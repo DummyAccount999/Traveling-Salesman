@@ -53,9 +53,9 @@ export class GraphDisplayComponent implements OnInit {
   temprature: number = 500;
   tempratureCopy: number = 0;
   speed: number = 5;
-  rndPointsCheck: boolean = false;
+  rndPointsCheck: boolean = true;
   rndPoints: number = 10;
-
+  id: number = 0;
 
   timer: number;
 
@@ -66,7 +66,7 @@ export class GraphDisplayComponent implements OnInit {
       const x = e.clientX - this.ctx.canvas.getBoundingClientRect().left;
       const y = e.clientY - this.ctx.canvas.getBoundingClientRect().top;
 
-      this.points.push({ x: x, y: y });
+      this.points.push({ x: x, y: y, id: this.id++ });
 
       this.bestGraph = undefined;
       this.draw();
@@ -139,6 +139,7 @@ export class GraphDisplayComponent implements OnInit {
     this.bestGraph = undefined;
     this.buttonText = "Start!";
     this.buttonFunction = this.generateArcs;
+    this.id = 0;
   }
 
   ngOnInit(): void {
@@ -166,7 +167,7 @@ export class GraphDisplayComponent implements OnInit {
           let xVal = Math.floor(Math.random() * this.ctx.canvas.width);
           let yVal = Math.floor(Math.random() * this.ctx.canvas.height);
 
-          this.points.push({ x: xVal, y: yVal });
+          this.points.push({ x: xVal, y: yVal, id: this.id++ });
           this.bestGraph = undefined;
           this.draw();
           this.drawCopy(undefined);

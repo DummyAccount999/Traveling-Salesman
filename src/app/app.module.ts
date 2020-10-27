@@ -10,6 +10,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AboutPageComponent } from './about-page/about-page.component';
 import { GeneticsComponent } from './genetics/genetics.component';
 import { CanvasTemplateComponent } from './canvas-template/canvas-template.component';
+import { ImagePageComponent } from './image-page/image-page.component';
 
 @NgModule({
   declarations: [
@@ -18,16 +19,18 @@ import { CanvasTemplateComponent } from './canvas-template/canvas-template.compo
     NavBarComponent,
     AboutPageComponent,
     GeneticsComponent,
-    CanvasTemplateComponent
+    CanvasTemplateComponent,
+    ImagePageComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     RouterModule.forRoot([
-    {path: 'genetic', component: GeneticsComponent},
-    {path: 'about', component: AboutPageComponent},
-    {path: '', component: GraphDisplayComponent},
+      { path: 'genetic', component: GeneticsComponent },
+      { path: 'about', component: AboutPageComponent },
+      { path: 'image', component: ImagePageComponent },
+      { path: '', component: GraphDisplayComponent },
     ]),
   ],
   providers: [],

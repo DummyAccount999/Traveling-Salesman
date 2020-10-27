@@ -1,0 +1,83 @@
+<div class=grid-container>
+    <div class="grid-item-1col">
+        <h1>Original Image</h1>
+    </div>
+    <div class="grid-item-1col">
+        <h1>Traveling Salesman Image</h1>
+    </div>
+
+    <div class="grid-item-1col">
+        <canvas #canvasMain height="300"></canvas>
+    </div>
+    <div class="grid-item-1col">
+        <canvas #canvasCopy height="300"></canvas>
+    </div>
+
+    <div class="grid-item-1col">
+        <input #fileUploader id="fileUploader" type="file" accept="image/*" (change)="selectFile($event)" />
+        <button [disabled]="currentlyRunning" (click)="fileUploader.click()">Upload File</button>
+    </div>
+
+    <div class="grid-item-1col" id="buttonFlexContainer">
+        <button [disabled]="!fileUploaded || currentlyRunning" (click)="moveVoronoi()">{{buttonString}}</button>
+        <span [style.width]="pointsGenerated ? '20px' : '0px'"></span>
+        <div [@showNeighbourButton]="pointsGenerated ? 'show' : 'hide'">
+            <button [disabled]="currentlyRunning" (click)="nearestNeighbour()">Traveling saleman</button>
+        </div>
+    </div>
+
+    <div class="grid-item-2col">
+        <div class="dropDownContainer">
+            <label class="heading" (click)="toggleInformation()">
+                <span>Extra Information</span>
+                <span [@arrowRotation]="showInformation ? 'rotate' : 'default'" class="icon"><</span>
+            </label>
+            <div [@showDropDown]="showInformation ? 'show' : 'hide'" class="dropDownContents">
+                <label class="infoContainer">
+                    <span class="valueHeading">Total points generated:</span>
+                    <span class="value">{{vArray.length}}</span>
+                </label>
+                <label class="infoContainer">
+                    <span class="valueHeading">Calculated distance:</span>
+                    <span class="value">{{totalLength}}</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-item-2col">
+        <div class="dropDownContainer">
+            <label class="heading" (click)="toggleSettings()">
+                <span>Settings</span>
+                <span [@arrowRotation]="showSettings ? 'rotate' : 'default'" class="icon"><</span>
+            </label>
+            <div [@showDropDown]="showSettings ? 'show' : 'hide'" class="dropDownContents">
+                <div class="inputForm">
+                    <span class="textHeading">Draw Speed:</span>
+                    <input [disabled]="currentlyRunning" [(ngModel)]="maxSpeed" class="textInput" type="text" value={{maxSpeed}}>
+                    <input [disabled]="currentlyRunning" [(ngModel)]="maxSpeed" class="rangeInput" type="range" value={{maxSpeed}} min="1" max="1000"/>
+                </div>
+
+                <div class="inputForm">
+                    <span class="textHeading">Maximum amount of dots:</span>
+                    <input [disabled]="currentlyRunning" [(ngModel)]="maxDots" class="textInput" type="text" value={{maxDots}}/>
+                    <input [disabled]="currentlyRunning" [(ngModel)]="maxDots" class="rangeInput" type="range" 
+                        value={{maxDots}} min="5000" max="100000"/>
+                </div>
+
+                <div class="inputForm">
+                    <span class="textHeading">White Pixels Weight (%):</span>
+                    <input [disabled]="currentlyRunning" [(ngModel)]="whiteWeight" class="textInput" type="text" value={{whiteWeight}}/>
+                    <input [disabled]="currentlyRunning" [(ngModel)]="whiteWeight" class="rangeInput" type="range" value={{whiteWeight}} min="0" max="100"/>
+                </div>
+
+                <div class="inputForm">
+                    <span class="textHeading">Grouping Weight (%):</span>
+                    <input [disabled]="currentlyRunning" [(ngModel)]="groupingWeight" class="textInput" type="text" value={{groupingWeight}}/>
+                    <input [disabled]="currentlyRunning" [(ngModel)]="groupingWeight" class="rangeInput" type="range" 
+                        value={{groupingWeight}} min="1" max="100"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

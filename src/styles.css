@@ -8,3 +8,44 @@ canvas {
     border: 1px solid black;
     border-radius: 10px;
 }
+
+button {
+    border-radius: 10px;
+    border: 2px solid #415A77;
+    background-color: transparent;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+    width: 200px;
+    height: 50px;
+}
+
+button:hover {
+    background-color: #415A77;
+    color: #F1F5F2;
+    letter-spacing: 5px;
+    width: 230px;
+}
+
+button:disabled {
+    border-radius: 10px;
+    border: 2px solid #ff0000;
+    background-color: transparent;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+    width: 200px;
+    height: 50px;
+}
+
+button:hover:disabled {
+    background-color: #ff0000;
+    color: #F1F5F2;
+    letter-spacing: 5px;
+    width: 230px;
+    cursor: no-drop;
+}
